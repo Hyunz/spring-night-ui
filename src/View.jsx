@@ -20,7 +20,7 @@ export const View = ({setViewMetaInfo, id}) => {
     if (window.confirm("레알 지울거에요?")) {
       try {
         await deleteApi(id);
-        setViewMetaInfo({page: "LIST"});
+        setViewMetaInfo({view: "LIST"});
       } catch(e) {
         // 에러에러
       }
@@ -36,12 +36,12 @@ export const View = ({setViewMetaInfo, id}) => {
           <h1>{title} <span style={{fontSize: 14}}>by {author}, {postDate}</span></h1>
           <p>{content}</p>
           <hr/>
-          <button type="button" onClick={() => setViewMetaInfo({page: "LIST"})}>목록</button>&nbsp;
-          <button type="button" onClick={() => setViewMetaInfo({page: "EDIT", id})}>수정</button>&nbsp;
+          <button type="button" onClick={() => setViewMetaInfo({view: "LIST"})}>목록</button>&nbsp;
+          <button type="button" onClick={() => setViewMetaInfo({view: "EDIT", id})}>수정</button>&nbsp;
           <button type="button" onClick={deleteHandler}>삭제</button>
         </>
       ) : (
-        <button type="button" onClick={() => setViewMetaInfo({page: "LIST"})}>목록</button>
+        <button type="button" onClick={() => setViewMetaInfo({view: "LIST"})}>목록</button>
       )}
     </>
   )

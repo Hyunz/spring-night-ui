@@ -34,8 +34,8 @@ export const Form = ({setViewMetaInfo, id}) => {
           : await postApi(formData);
 
         setViewMetaInfo(isEdit
-          ? {page: "VIEW", id}
-          : {page: "LIST"}
+          ? {view: "VIEW", id}
+          : {view: "LIST"}
         );
       } catch(e) {
         // 에러에러
@@ -48,7 +48,7 @@ export const Form = ({setViewMetaInfo, id}) => {
   return (
     <form onSubmit={submitHandler}>
       {id}
-      <button onClick={() => setViewMetaInfo({page: "LIST"})}>목록</button>
+      <button onClick={() => setViewMetaInfo({view: "LIST"})}>목록</button>
       <hr/>
       <ul>
         <li>제목 <input type="text" value={formData.title} onChange={fieldChangeHandler("title")}/></li>

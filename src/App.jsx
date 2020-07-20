@@ -4,9 +4,9 @@ import {Form} from "./Form";
 import {View} from "./View";
 
 function App() {
-  const [viewMetaInfo, setViewMetaInfo] = useState({page: "LIST"});
+  const [viewMetaInfo, setViewMetaInfo] = useState({view: "LIST"});
   const view = useMemo(() => {
-    switch (viewMetaInfo.page) {
+    switch (viewMetaInfo.view) {
       case "POST": return <Form setViewMetaInfo={setViewMetaInfo} />;
       case "EDIT": return <Form setViewMetaInfo={setViewMetaInfo} id={viewMetaInfo.id} />;
       case "VIEW": return <View setViewMetaInfo={setViewMetaInfo} id={viewMetaInfo.id} />;

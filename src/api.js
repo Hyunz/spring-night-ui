@@ -8,9 +8,13 @@ const RESOURCE_ENDPOINT = "http://localhost:8080/api/article";
  *  [DELETE] http://localhost:8080/api/article/:id      글 삭제하기
  */
 
-export const getListApi = async () => {
-  const response = await fetch(`${RESOURCE_ENDPOINT}`);
-  return response.json();
+export const getListApi = async (page, pageSize) => {
+  const response = await fetch(`${RESOURCE_ENDPOINT}?page=${page}&size=${pageSize}`);
+  const { content: list, totalPages: total } = await response.json();
+  return {
+    list,
+    total
+  }
 };
 
 export const getDetailApi = async (id) => {
